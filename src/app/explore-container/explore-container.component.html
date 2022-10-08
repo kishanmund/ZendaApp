@@ -1,4 +1,100 @@
 <div id="container">
-  <strong>{{ name }}</strong>
-  <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div class="card-header">
+    <div class="card-header-details">
+      <img src="./../../assets/Solid_white_bordered.png" alt="" class="card-header-image">
+      <div class="card-header-name">
+        School Name
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="profile-details">
+      <img class="profile-pic" src="./../../assets/download.png" alt="">
+      <div class="profile">
+        <div class="profile-name">
+          Jessica John Jones
+        </div>
+        <div class="profile-location">
+          <ion-icon name="trophy-outline"></ion-icon>
+          <ion-label>America</ion-label>
+        </div>
+      </div>
+    </div>
+    <div class="card card-bg">
+      <div class="approve-icon">
+        <ion-icon name="checkmark-circle"></ion-icon>
+      </div>
+      <div class="card-header-name">
+        <span>Now pay your fee monthly with @</span>
+      </div>
+      <div class="card-content">
+        <div class="pecentage">
+          0%
+        </div>
+        <div class="approval-details">
+          <span>Interest</span> <br>
+          <span>pre-approved credit line</span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="footer-value">
+          <span style="font-size: 14px;">Annual Fee</span><br>
+          <span style="font-weight: bold;">
+            &#x20b9; 3,40,000
+          </span>
+        </div>
+        <div class="footer-button" (click)="open()">
+          Activate Now
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popup" *ngIf="isOpen">
+  <div class="popup-container">
+    <div class="popup-header">
+      <span>Please enter your details below</span>
+      <ion-icon (click)="close()" style="cursor: pointer;" name="close-circle"></ion-icon>
+    </div>
+    <ion-content style="height: 300px;">
+      <form [formGroup]="ionicForm" novalidate>
+        <ion-item lines="full">
+          <ion-label position="floating">Phone Number</ion-label>
+          <ion-input maxlength="10" formControlName="mobile" type="text" required></ion-input>
+  
+          <span class="error ion-padding statusGreen" *ngIf="errorControl.mobile.status == 'VALID'">
+            <ion-icon name="checkmark-circle"></ion-icon>
+          </span>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">PAN Card number</ion-label>
+          <ion-input formControlName="pan" type="text"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Name as in PAN Card</ion-label>
+          <ion-input formControlName="panCard" type="text"></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email"></ion-input>
+          <span class="error ion-padding statusGreen" *ngIf="errorControl.email.status == 'VALID'">
+            <ion-icon name="checkmark-circle"></ion-icon>
+          </span>
+        </ion-item>
+        <ion-row style="padding: 14px 0 0;">
+          <ion-col>
+            <div class="cancel-btn" (click)="close()">
+              Cancel
+            </div>
+          </ion-col>
+          <ion-col>
+            <div class="activate-btn" (click)="close()">
+              Activate Now
+            </div>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-content>
+  </div>
 </div>
