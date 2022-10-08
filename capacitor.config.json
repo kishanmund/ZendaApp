@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ZendaApp",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

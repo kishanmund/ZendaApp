@@ -1,0 +1,7 @@
+{
+  "name": "ZendaApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
